@@ -1,0 +1,20 @@
+<% layout("layout.eta") %>
+
+<div class="container">
+
+  <div class="invest_list">
+    <% for (let i=0 ; i<it.investments.length ; i++) { %>
+    <% let item = it.investments[i] ; %>
+    <% let date = it.investments[i].date.toLocaleDateString(); %>
+    <div class="invest_item">
+      <div class="invest_num"><%= item.id %></div>
+      <div class="invest_descr"><%= item.description %></div>
+      <div class="invest_date"><%= date %></div>
+      <div class="invest_sum"><%= item.sum %></div>
+      <button>Delete</button>
+    </div>
+    <% } %>
+  </div>
+
+
+</div>
