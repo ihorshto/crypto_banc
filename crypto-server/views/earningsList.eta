@@ -1,0 +1,33 @@
+<% layout("layout.eta") %>
+
+<div class="container">
+  <img class="content-img" src="images/bitcoin.png" alt="">
+  <div class="content_box">
+    <h2 class="content-title">Earnings</h2>
+    <p class="content-text">Sum of earnings: <%= it.earningSum %>$</p>
+  </div>
+  <div class="table_wrapper">
+    <table>
+      <thead>
+        <tr class="table100-head">
+          <th class="column1">Id</th>
+          <th class="column2">Description</th>
+          <th class="column3">Date</th>
+          <th class="column4">Sum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i=0 ; i<it.earnings.length ; i++) { %>
+        <% let item = it.earnings[i] ; %>
+        <% let date = it.earnings[i].date.toLocaleDateString(); %>
+        <tr>
+          <td class="column1"><%= item.id %></td>
+          <td class="column2"><%= item.description %></td>
+          <td class="column3"><%= date %></td>
+          <td class="column4"><%= item.sum %>$</td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>

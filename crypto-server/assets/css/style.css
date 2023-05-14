@@ -1,0 +1,336 @@
+@font-face {
+ font-family: OpenSans-Regular;
+ src: url(../fonts/OpenSans/OpenSans-Regular.ttf)
+}
+
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box
+}
+
+body,
+html {
+ height: 100%;
+ font-family: sans-serif
+}
+
+a {
+ margin: 0;
+ transition: all .4s;
+ -webkit-transition: all .4s;
+ -o-transition: all .4s;
+ -moz-transition: all .4s
+}
+
+a:focus {
+ outline: none !important
+}
+
+a:hover {
+ text-decoration: none
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+ margin: 0
+}
+
+p {
+ margin: 0
+}
+
+ul,
+li {
+ margin: 0;
+ list-style-type: none
+}
+
+input {
+ display: block;
+ outline: none;
+ border: none !important
+}
+
+textarea {
+ display: block;
+ outline: none
+}
+
+textarea:focus,
+input:focus {
+ border-color: transparent !important
+}
+
+button {
+ outline: none !important;
+ border: none;
+ background: 0 0
+}
+
+button:hover {
+ cursor: pointer
+}
+
+iframe {
+ border: none !important
+}
+
+.limiter {
+ width: 100%;
+ margin: 0 auto
+}
+
+/* end */
+
+header {
+ background-color: rgb(193, 193, 193);
+ border-bottom: 1px solid #303030;
+ padding: 25px 0;
+}
+
+footer {
+ display: block;
+ display: flex;
+ justify-content: center;
+ background-color: rgb(193, 193, 193);
+ padding: 25px 0;
+}
+
+.container {
+ max-width: 1220px;
+ padding: 0 10px;
+ margin: 0 auto;
+
+}
+
+.container_body {
+ background-color: rgb(193, 193, 193);
+ padding-top: 100px;
+}
+
+
+/* Nav menu */
+.nav {
+ display: block;
+}
+
+.nav_container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+}
+
+.nav_items {
+ display: flex;
+}
+
+.nav_item-link+.nav_item-link {
+ margin-left: 40px;
+}
+
+.nav_item-link {
+ text-decoration: none;
+ color: #fff;
+ padding: 12px 16px;
+ background-color: #7b7b7b;
+ border-radius: 10px;
+}
+
+/* Nav menu End */
+
+
+/* Table */
+.content-img {
+ width: 250px;
+ text-align: right;
+ float: right;
+ margin-left: auto;
+ padding-right: 50px;
+}
+
+.content_box {
+ padding-top: 50px;
+}
+
+.content-title {
+ font-size: 42px;
+}
+
+.content-text {
+ font-size: 18px;
+ padding-top: 50px;
+ padding-left: 20px;
+}
+
+.table_wrapper {
+ max-width: 1220px;
+ width: 100%;
+ margin: 0 auto;
+ padding: 50px 0 100px;
+}
+
+table {
+ border-spacing: 1;
+ border-collapse: collapse;
+ background: #fff;
+ border-radius: 10px;
+ overflow: hidden;
+ width: 100%;
+ margin: 0 auto;
+ position: relative
+}
+
+table * {
+ position: relative
+}
+
+table thead tr {
+ height: 60px;
+ background: #36304a
+}
+
+table tbody tr {
+ height: 50px
+}
+
+table tbody tr:last-child {
+ border: 0
+}
+
+table td,
+table th {
+ text-align: center;
+}
+
+
+.table100-head th {
+ font-family: OpenSans-Regular;
+ font-size: 18px;
+ color: #fff;
+ line-height: 1.2;
+ font-weight: unset;
+ font-size: 22px;
+
+}
+
+tbody tr:nth-child(even) {
+ background-color: #f5f5f5
+}
+
+tbody tr {
+ font-family: OpenSans-Regular;
+ font-size: 15px;
+ color: gray;
+ line-height: 1.2;
+ font-weight: unset
+}
+
+tbody tr:hover {
+ color: #555;
+ background-color: #f5f5f5;
+ cursor: pointer
+}
+
+tbody td {
+ font-size: 18px;
+}
+
+.column1 {
+ width: 10%;
+}
+
+.column2 {
+ width: 60%;
+}
+
+.column3 {
+ width: 15%
+}
+
+.column4 {
+ width: 15%;
+}
+
+/* Responsive */
+@media screen and (max-width:768px) {
+ table {
+  display: block
+ }
+
+ table>*,
+ table tr,
+ table td,
+ table th {
+  display: block
+ }
+
+ table thead {
+  display: none
+ }
+
+ table tbody tr {
+  height: auto;
+  padding: 37px 0
+ }
+
+ table tbody tr td {
+  padding-left: 40% !important;
+  margin-bottom: 24px
+ }
+
+ table tbody tr td:last-child {
+  margin-bottom: 0
+ }
+
+ table tbody tr td:before {
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  color: #999;
+  line-height: 1.2;
+  font-weight: unset;
+  position: absolute;
+  width: 40%;
+  left: 30px;
+  top: 0
+ }
+
+ table tbody tr td:nth-child(1):before {
+  content: "Id"
+ }
+
+ table tbody tr td:nth-child(2):before {
+  content: "Description"
+ }
+
+ table tbody tr td:nth-child(3):before {
+  content: "Date"
+ }
+
+ table tbody tr td:nth-child(4):before {
+  content: "Sum"
+ }
+
+
+ .column4,
+ .column1,
+ .column2,
+ .column3 {
+  width: 100%
+ }
+
+ tbody tr {
+  font-size: 14px
+ }
+}
+
+@media(max-width:576px) {
+ .container-table100 {
+  padding-left: 15px;
+  padding-right: 15px
+ }
+}
