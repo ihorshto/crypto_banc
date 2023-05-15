@@ -167,6 +167,25 @@ footer {
  padding-left: 20px;
 }
 
+.content_form-row {
+ display: flex;
+ padding-top: 50px;
+}
+
+.content_form-el+.content_form-el {
+ margin-left: 15px;
+}
+
+.form-control {
+ padding: 10px 5px;
+}
+
+.content_form-btn {
+ background-color: #777777;
+ width: 8.33%;
+ border-radius: 5px;
+}
+
 .table_wrapper {
  max-width: 1220px;
  width: 100%;
