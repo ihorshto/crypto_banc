@@ -20,6 +20,8 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
 app.use(bodyParser.json())
+const cors = require('cors')
+app.use(cors())
 
 let connection;
 async function initMySQL() {
@@ -55,11 +57,11 @@ app.get("/", function (req, res) {
 // GET Investments
 app.get("/investments", async function (req, res) {
 	let investments = await loadInvestments();
-		let investmentSum = 0;
+	let investmentSum = 0;
 
-		for (let i = 0; i < investments.length; i++) {
-			investmentSum = investmentSum + investments[i].sum;
-		}
+	for (let i = 0; i < investments.length; i++) {
+		investmentSum = investmentSum + investments[i].sum;
+	}
 
 	res.render('investmentsList.eta', {
 		investments, investmentSum
@@ -84,7 +86,12 @@ app.get("/earnings", async function (req, res) {
 app.get("/details/:id", async function (req, res) {});
 
 // les requêtes REST du backoffice
-app.get("/office/products", function (req, res) {});
+app.get("/office/investments", async function (req, res) {
+	let investments = await loadInvestments();
+
+	res.send(investments);
+});
+
 app.get("/office/products/:id", function (req, res) {});
 app.post("/office/products", function (req, res) {});
 app.put("/office/products/:id", function (req, res) {});

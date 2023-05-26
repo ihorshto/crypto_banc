@@ -1,21 +1,27 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+    <header>
+      <div class="container">
+        <nav class="nav">
+          <div class="nav_container">
+            <div>
+              <a class=" navbar_img-link" href="#"><img class="nav_img" src="@/assets/logo.svg" alt="logo"></a>
+            </div>
+            <div class="nav_items">
+              <RouterLink to="/investments" class="nav_item-link">Investments</RouterLink>
+              <RouterLink to="/earnings" class="nav_item-link">Earnings</RouterLink>
+              <RouterLink to="/earnings" class="nav_item-link">Statistic</RouterLink>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
 
   <RouterView />
+  <footer class="footer">
+    <p> © Slava Ukraine</p>
+  </footer>
 </template>
