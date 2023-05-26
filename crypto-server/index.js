@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const eta = require("eta");
 const bodyParser = require('body-parser');
-// const dayjs = require('dayjs')
+const dayjs = require('dayjs')
 const mysql = require('mysql2/promise');
 
 app.engine("eta", eta.renderFile);
@@ -20,7 +20,8 @@ app.use(bodyParser.urlencoded({
 	extended: true
 }))
 app.use(bodyParser.json())
-const cors = require('cors')
+const cors = require('cors');
+const { log } = require("console");
 app.use(cors())
 
 let connection;
@@ -44,14 +45,14 @@ async function loadEarnings() {
 	return rows;
 }
 
-async function loadProduct(id) {}
-async function addProduct(product) {}
-async function updateProduct(id, product) {}
-async function removeProduct(id) {}
+async function loadProduct(id) { }
+async function addProduct(product) { }
+async function updateProduct(id, product) { }
+async function removeProduct(id) { }
 
 // les pages du site web
 app.get("/", function (req, res) {
-	res.redirect("/investments");
+	res.redirect("/office/investments");
 });
 
 // GET Investments
@@ -76,26 +77,35 @@ app.get("/earnings", async function (req, res) {
 	for (let i = 0; i < earnings.length; i++) {
 		earningSum = earningSum + earnings[i].sum;
 	}
-
 	res.render('earningsList.eta', {
-		earnings,
-		earningSum
+		earnings, earningSum
 	})
 })
 
-app.get("/details/:id", async function (req, res) {});
+app.get("/details/:id", async function (req, res) { });
 
 // les requêtes REST du backoffice
 app.get("/office/investments", async function (req, res) {
 	let investments = await loadInvestments();
 
+	investments.forEach(element => {
+		element.date = dayjs(element.date).format("DD/MM/YYYY");
+	});
+
 	res.send(investments);
 });
 
-app.get("/office/products/:id", function (req, res) {});
-app.post("/office/products", function (req, res) {});
-app.put("/office/products/:id", function (req, res) {});
-app.delete("/office/products/:id", function (req, res) {});
+
+app.get("/office/earnings", async function (req, res) {
+	let earnings = await loadEarnings();
+
+	res.send(earnings);
+});
+
+app.get("/office/products/:id", function (req, res) { });
+app.post("/office/products", function (req, res) { });
+app.put("/office/products/:id", function (req, res) { });
+app.delete("/office/products/:id", function (req, res) { });
 
 
 app.listen(8000, async function () {

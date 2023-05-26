@@ -3,9 +3,10 @@ import { ref } from 'vue'
 
 let investments = ref([]);
 
+
 let investmentSum = 0;
 
-let investSum = function () {
+let loadInvestment = function () {
   fetch("http://localhost:8000/office/investments", {
     method: 'GET',
     headers: {
@@ -19,52 +20,17 @@ let investSum = function () {
         investmentSum += element.sum;
       });
 
-      console.log("investmentSum", investmentSum);
-    })
-}
+      let myDate = data;
 
-let loadInvestment = function () {
-  const investSum = document.getElementById("investSum");
-  console.log(investSum);
-  fetch("http://localhost:8000/office/investments", {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-    .then(response => response.json())
-    .then(data => {
+      console.log('myDate', myDate[0])
 
-      console.log("response", data)
       investments.value = data;
-      console.log(investments.value)
-      
-
     })
 }
+
+
 
 loadInvestment();
-investSum();
-
-console.log("Investments", investments.value);
-// investments.forEach(async (rating) => {
-//   console.log(rating);
-// })
-
-// let sumOfInvestment = function () {
-
-//   let arr = investments.value;
-//   console.log("inv", arr.length);
-//   investments.value.forEach(element => {
-//     investmentSum += investmentSum + element.sum;
-//   });
-
-//   console.log(investmentSum)
-//   return investmentSum;
-// }
-
-// sumOfInvestment();
-
 
 </script>
 
