@@ -22,8 +22,8 @@
           </div>
           <div class="nav_items">
             <a class="nav_item-link" href="/investments">Investments</a>
-            <a class="nav_item-link"" href="/earnings">Earnings </a> <a
-              class="nav_item-link"" href="/statistic">Statistic </a> </div> </div> </nav> </div> </header> <div
+            <a class="nav_item-link" href="/earnings">Earnings </a> <a
+              class="nav_item-link" href="/statistic">Statistic </a> </div> </div> </nav> </div> </header> <div
               class="container_body">
               <%~ it.body %>
           </div>
