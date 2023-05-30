@@ -23,8 +23,42 @@ let loadEarnings = function () {
       earnings.value = data;
     })
 }
-
 loadEarnings();
+
+let addEarnings = function (event) {
+  event.preventDefault();
+  let earningsDescr = document.getElementById("description").value;
+  let earningsDate = document.getElementById("date").value;
+  let earningsSum = document.getElementById("sum").value;
+
+  console.log("addEarnings")
+
+  if (!earningsDescr || !earningsDate || !earningsSum) {
+    alert("Fill all the fields")
+  } else {
+    fetch("http://localhost:8000/office/earnings", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        description: earningsDescr,
+        date: earningsDate,
+        sum: earningsSum,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Earnings added successfully", data);
+        // Perform any additional actions after successful addition
+      })
+      .catch(error => {
+        console.error("Error adding earnings", error);
+        // Handle error (e.g., show error message)
+      });
+    document.location.href = '/earnings';
+  }
+}
 
 </script>
 
@@ -36,16 +70,16 @@ loadEarnings();
         <h2 class="content-title"> Earnings </h2>
         <p class="content-text" id="investSum">Sum of earnings: {{ earningSum }}$</p>
       </div>
-      <form class="content_form">
+      <form class="content_form" @submit="addEarnings">
         <div class="content_form-row">
           <div class="col-7 content_form-el">
-            <input type="text" class="form-control" placeholder="Description">
+            <input id="description" type="text" class="form-control" placeholder="Description">
           </div>
           <div class="col-2 content_form-el">
-            <input type="date" class="form-control" placeholder="Date">
+            <input id="date" type="date" class="form-control" placeholder="Date">
           </div>
           <div class="col-2 content_form-el">
-            <input type="number" class="form-control" placeholder="Sum">
+            <input id="sum" type="number" class="form-control" placeholder="Sum">
           </div>
           <button class="content_form-btn content_form-el" type="submit">+</button>
         </div>
